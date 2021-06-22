@@ -1,0 +1,11 @@
+name: Localize
+main: de.blu.localze.LocalizePlugin
+api-version: 1.16
+version: 1.0.0
+author: Blu
+depend:
+  - DatabaseSystem
+commands:
+  language:
+    aliases:
+      - lang

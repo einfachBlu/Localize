@@ -1,0 +1,5 @@
+rootProject.name = 'localize'
+include 'bukkit-plugin'
+include 'bungeecord-plugin'
+include 'api'
+
