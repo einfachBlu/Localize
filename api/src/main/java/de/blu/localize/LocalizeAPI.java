@@ -84,13 +84,6 @@ public final class LocalizeAPI {
   public String getMessage(Locale locale, String messageKey, Object... args) {
     String message = this.messages.get(locale).getOrDefault(messageKey, "N/A (" + messageKey + ")");
 
-    // Replace Args
-    for (int i = 0; i < args.length; i++) {
-      String argumentValue = String.valueOf(args[i]);
-
-      message = message.replaceAll("\\{" + i + "}", argumentValue);
-    }
-
     // Replace Custom Line Seperator
     message = message.replaceAll("\\{NEXT_LINE}", "\n");
 
@@ -117,13 +110,20 @@ public final class LocalizeAPI {
       }
 
       if (this.messages.get(locale).containsKey(parameter)) {
-        message = message.replaceAll("%" + parameter + "%", this.getMessage(locale, parameter, args));
+        message = message.replaceAll("%" + parameter + "%", this.getMessage(locale, parameter));
       }
 
       // Prevent overflow if 2 localized messages depend on each other
       if (++count > 20) {
         break;
       }
+    }
+
+    // Replace Args
+    for (int i = 0; i < args.length; i++) {
+      String argumentValue = String.valueOf(args[i]);
+
+      message = message.replace("{" + i + "}", argumentValue);
     }
 
     return message;
