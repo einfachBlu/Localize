@@ -117,7 +117,7 @@ public final class LocalizeAPI {
       }
 
       if (this.messages.get(locale).containsKey(parameter)) {
-        message = message.replaceAll("%" + parameter + "%", this.getMessage(locale, parameter));
+        message = message.replaceAll("%" + parameter + "%", this.getMessage(locale, parameter, args));
       }
 
       // Prevent overflow if 2 localized messages depend on each other

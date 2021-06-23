@@ -41,8 +41,6 @@ subprojects {
     }
 
     dependencies {
-        //implementation 'com.google.code.gson:gson:2.8.7'
-        //implementation 'commons-io:commons-io:2.5'
         implementation 'com.google.inject:guice:4.0'
         implementation 'com.github.einfachBlu:database-system:master-SNAPSHOT'
 
